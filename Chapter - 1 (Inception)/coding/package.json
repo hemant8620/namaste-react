@@ -1,0 +1,23 @@
+{
+  "name": "coding",
+  "version": "1.0.0",
+  "description": "namaste react tutorial",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemant8620/namaste-react.git"
+  },
+  "keywords": [],
+  "author": "hemant agarwal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hemant8620/namaste-react/issues"
+  },
+  "homepage": "https://github.com/hemant8620/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
