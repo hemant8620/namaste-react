@@ -2,8 +2,9 @@
   "name": "coding",
   "version": "1.0.0",
   "description": "namaste react tutorial",
-  "main": "app.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -18,6 +19,14 @@
   },
   "homepage": "https://github.com/hemant8620/namaste-react#readme",
   "devDependencies": {
-    "parcel": "^2.9.3"
-  }
+    "parcel": "^2.9.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browsersList": [
+    "Last 2 versions"
+  ]
 }
