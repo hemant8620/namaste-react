@@ -1,6 +1,7 @@
 import RestaurantCard from "./ResaturantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
+import { Link } from "react-router-dom";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -12,6 +13,7 @@ function filterData(searchText, restaurants) {
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [listOfRestaurants, setList] = useState([]);
+  const [filteredListRestaurant, setfilteredListRestaurant] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -27,9 +29,12 @@ const Body = () => {
     setList(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setfilteredListRestaurant(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
-  if (listOfRestaurants.length === 0) {
+  if (listOfRestaurants?.length === 0) {
     return <Shimmer />;
   }
   return (
@@ -46,7 +51,7 @@ const Body = () => {
           className="search-btn"
           onClick={() => {
             const data = filterData(searchText, listOfRestaurants);
-            setList(data);
+            setfilteredListRestaurant(data);
           }}
         >
           Search
@@ -56,18 +61,18 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList = listOfRestaurants.filter(
+            const filteredList = listOfRestaurants?.filter(
               (res) => res.info.avgRating > 4.5
             );
-            setList(filteredList);
+            setfilteredListRestaurant(filteredList);
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="res-container">
-        {listOfRestaurants.map((data) => {
-          return <RestaurantCard key={data.info.id} resData={data} />;
+        {filteredListRestaurant?.map((data) => {
+          return <Link to={"/restaurants/" + data.info.id}><RestaurantCard key={data.info.id} resData={data} /></Link>;
         })}
       </div>
     </div>
