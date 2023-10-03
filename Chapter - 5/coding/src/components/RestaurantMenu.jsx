@@ -5,7 +5,7 @@ import Shimmer from "./shimmer";
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
 
-  const {resId} = useParams();
+  const { resId } = useParams();
 
   useEffect(() => {
     fetchMenu();
@@ -13,7 +13,8 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.6331067&lng=88.4169004&restaurantId=" + resId
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.6331067&lng=88.4169004&restaurantId=" +
+        resId
     );
     const json = await data.json();
     setResInfo(json);
